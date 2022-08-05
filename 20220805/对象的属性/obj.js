@@ -2,7 +2,7 @@
 /*
 对象的计算属性[]
 和.属性的区别
-使用obj[xx]和obj.xx
+使用obj[xx]和obj.xxx
 */
 {
   let arr = [];
