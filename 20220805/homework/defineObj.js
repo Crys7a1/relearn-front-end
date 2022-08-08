@@ -9,11 +9,13 @@ const person = {
   introduce() {
     console.log("hello");
   },
-  hair() {
-    console.log("hair");
+  "剪头发": function () {
+    console.log("剪头发");
   },
-  beat() {
-    console.log("beat");
+  "打豆豆":function() {
+    console.log("打豆豆");
   },
 };
-console.log(person);
+person.introduce()
+person["剪头发"]()
+person["打豆豆"]()
