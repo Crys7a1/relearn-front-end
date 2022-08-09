@@ -28,11 +28,11 @@
         color: red;
         cursor: pointer;
       }
-      .icon-set i:hover {
+      /* .icon-set i:hover {
         color: #fff;
-      }
+      } */
       .mark {
-        color: #fff;
+        border: 1px solid royalblue;
       }
     </style>
   </head>
@@ -51,17 +51,25 @@
       const iconList = document.querySelectorAll('i')
       const imgSrc = document.querySelector('img')
       console.log(iconList)
+      let num = 0
+
+      const next = (i) => {
+        iconList.forEach((element) => {
+          element.classList.remove('mark')
+        })
+        num = i
+        iconList[i].classList.add('mark')
+        imgSrc.src = `./images/${i}.jpg`
+      }
 
       for (let i = 0; i < iconList.length; i++) {
-        iconList[i].addEventListener('click', () => {
-          imgSrc.src = `./images/${i}.jpg`
-        })
+        iconList[i].addEventListener('click', next(i))
       }
-      let num = 0
       setInterval(() => {
+        next(num)
         num++
         if (num > 4) num = 0
-        imgSrc.src = `./images/${num}.jpg`
+        // imgSrc.src = `./images/${num}.jpg`
       }, 3000)
     </script>
   </body>
