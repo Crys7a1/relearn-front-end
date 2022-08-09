@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <div>
+        <label for="username"
+          >用户名:<input type="text" id="username" /><span id="userInfo"></span>
+        </label>
+      </div>
+      <div>
+        <label for="pwd">
+          密&emsp;码:<input type="text" id="pwd" /><span id="pwdInfo"></span
+        ></label>
+      </div>
+    </form>
+    <script>
+      const userName = document.querySelector('#username')
+      const pwd = document.querySelector('#pwd')
+      const userInfo = document.querySelector('#userInfo')
+      const pwdInfo = document.querySelector('#pwdInfo')
+
+      const checkUserName = () => {
+        const reg = /^[a-zA-Z](?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{3,16}$/
+        const result = reg.test(userName.value)
+        if (!result) {
+          userInfo.textContent = '登录用户名由英文和数组组成的4-16位字符,以字符开头'
+        } else {
+          userInfo.textContent = '✅'
+        }
+        console.log(userInfo.textContent)
+        console.log(result)
+      }
+      const checkPwd = () => {
+        const reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{4,10}$/
+        const result = reg.test(pwd.value)
+        if (!result) {
+          pwdInfo.textContent = '密码由英文和数组组成的4-16位字符'
+        } else {
+          pwdInfo.textContent = '✅'
+        }
+        console.log(userInfo.textContent)
+        console.log(result)
+      }
+      userName.addEventListener('input', checkUserName)
+      pwd.addEventListener('input', checkPwd)
+    </script>
+  </body>
+</html>
+<!-- ^[a-zA-Z][a-zA-Z0-9]*$ -->
+<!-- ^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,10}$ -->
+<!-- [a-zA-Z][a-zA-Z0-9]{3,15} -->
+
+<!-- ^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{4,16}$ -->

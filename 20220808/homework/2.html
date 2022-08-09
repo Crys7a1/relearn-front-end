@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./font/iconfont.css" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        position: relative;
+      }
+      img {
+        width: 363px;
+        height: 392px;
+        display: block;
+      }
+      .icon-set {
+        width: 180px;
+        height: 40px;
+        position: absolute;
+        bottom: 100px;
+        left: 220px;
+      }
+      .icon-set i {
+        color: red;
+        cursor: pointer;
+      }
+      .icon-set i:hover {
+        color: #fff;
+      }
+      .mark {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img src="./images/0.jpg" alt="" />
+      <div class="icon-set">
+        <i class="iconfont icon-weixuanzhongyuandian"></i>
+        <i class="iconfont icon-weixuanzhongyuandian"></i>
+        <i class="iconfont icon-weixuanzhongyuandian"></i>
+        <i class="iconfont icon-weixuanzhongyuandian"></i>
+        <i class="iconfont icon-weixuanzhongyuandian"></i>
+      </div>
+    </div>
+    <script>
+      const iconList = document.querySelectorAll('i')
+      const imgSrc = document.querySelector('img')
+      console.log(iconList)
+
+      for (let i = 0; i < iconList.length; i++) {
+        iconList[i].addEventListener('click', () => {
+          imgSrc.src = `./images/${i}.jpg`
+        })
+      }
+      let num = 0
+      setInterval(() => {
+        num++
+        if (num > 4) num = 0
+        imgSrc.src = `./images/${num}.jpg`
+      }, 3000)
+    </script>
+  </body>
+</html>
