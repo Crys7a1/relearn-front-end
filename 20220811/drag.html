@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 300px;
+        height: 200px;
+        border: solid red 1px;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <p>目标:将用一张图片拖放到一个div中</p>
+    <!-- draggable="true" -->
+    <!-- <img id="image" src="./images/dice-1.png" ondragstart="drag(event)" /> -->
+    <!-- <div id="container" ondrop="drop(event)" ondragover="allowDrop(event)"></div> -->
+    <img id="image" src="./images/dice-1.png" />
+    <div id="container"></div>
+    <script>
+      //   function allowDrop(e) {
+      //     console.log('allowDrop', e);
+      //     e.preventDefault();
+      //   }
+      //   function drag(e) {
+      //     console.log('drag', e);
+      //     e.dataTransfer.setData('Text', e.target.id);
+      //   }
+      //   function drop(e) {
+      //     console.log('drop', e);
+      //     e.preventDefault();
+      //     let id = e.dataTransfer.getData('Text');
+      //     e.target.appendChild(document.getElementById(id));
+      //   }
+
+      const dragImg = document.querySelector('#image');
+      const containerDiv = document.querySelector('#container');
+      const setData = (e) => {
+        e.dataTransfer.setData('Text', e.target.id);
+        console.log('drag', e);
+      };
+      const appendEl = (e) => {
+        let id = e.dataTransfer.getData('Text');
+        e.target.appendChild(document.getElementById(id));
+      };
+      const preventEvent = (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+      };
+      //定义拖拽数据
+      dragImg.addEventListener('dragstart', setData);
+      //处理放置效果
+      containerDiv.addEventListener('drop', appendEl);
+      //   定义一个放置区
+      containerDiv.addEventListener('dragover', preventEvent);
+    </script>
+  </body>
+</html>

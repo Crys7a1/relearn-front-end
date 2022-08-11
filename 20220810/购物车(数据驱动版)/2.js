@@ -45,27 +45,25 @@ function calcTotalInfo() {
   return [totalPrice, totalQuantity];
 }
 function handleSelect(id, obj) {
-  const index = getIndexByProp("id", id);
+  const index = getIndexByProp('id', id);
   cart[index].checked = obj.checked;
   render();
 }
 function render() {
-  let tbody = document.querySelector("#goods");
-  tbody.innerHTML = "";
-  let trs = "";
+  let tbody = document.querySelector('#goods');
+  tbody.innerHTML = '';
+  let trs = '';
   for (const data of cart) {
     let row = `
         <tr>
         <td align="center">
-          <input type="checkbox" ${data.checked ? "checked" : ""}
+          <input type="checkbox" ${data.checked ? 'checked' : ''}
           onclick="handleSelect(${data.id},this)" />
         </td>
         <td>${data.name}</td>
         <td>${data.price}</td>
         <td align="center">
-          <input type="button" id="decreaseBtn" value="-" onclick="decrease(${
-            data.id
-          })" />
+          <input type="button" id="decreaseBtn" value="-" onclick="decrease(${data.id})" />
           <input type="text" size="3" readonly value="${data.quantity}" />
           <input type="button" value="+" onclick="increase(${data.id})" />
         </td>
@@ -80,13 +78,11 @@ function render() {
   tbody.innerHTML = trs;
 
   let [totalPrice, totalQuantity] = calcTotalInfo();
-  document.querySelector("#total_quantity").textContent = totalQuantity;
-  document.querySelector("#total_price").textContent = totalPrice;
+  document.querySelector('#total_quantity').textContent = totalQuantity;
+  document.querySelector('#total_price').textContent = totalPrice;
 
   //选中
-  document.querySelector("#checkall").checked = cart.every(
-    (item) => item.checked
-  );
+  document.querySelector('#checkall').checked = cart.every((item) => item.checked);
 }
 function add_cart(btn) {
   const tr = btn.parentNode.parentNode;
@@ -94,7 +90,7 @@ function add_cart(btn) {
   const name = tds[0].innerHTML;
   const price = +tds[1].innerHTML;
   //获取索引
-  const index = getIndexByProp("name", name);
+  const index = getIndexByProp('name', name);
   //如果购物车里没有商品
   //添加
   if (index < 0) {
@@ -112,7 +108,7 @@ function add_cart(btn) {
   render();
 }
 function increase(btn) {
-  const index = getIndexByProp("id", btn);
+  const index = getIndexByProp('id', btn);
   cart[index].quantity++;
   render();
 }
@@ -124,7 +120,7 @@ function handleSelectAll(obj) {
   render();
 }
 function decrease(btn) {
-  const index = getIndexByProp("id", btn);
+  const index = getIndexByProp('id', btn);
   console.log(cart[index].quantity);
   if (cart[index].quantity <= 1) {
     return;
@@ -135,7 +131,7 @@ function decrease(btn) {
 }
 
 function del(id) {
-  let index = getIndexByProp("id", id);
+  let index = getIndexByProp('id', id);
   cart.splice(index, 1);
   render();
 }
