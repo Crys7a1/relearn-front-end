@@ -3,6 +3,7 @@
   console.log(-0); //-0
   console.log(+0 == -0); //true
   console.log(+0 === -0); //true
+  console.log(Object.is(+0, -0));
 }
 // 一个是数字,另一个是undefined/null/布尔型/数字, 转化成数字进行加法运算
 // 一个是数字,另一个是字符串, 进行字符串拼接

@@ -18,3 +18,17 @@ obj3 = {
   const newobj = { ...obj, ...obj2, ...obj3 };
   console.log(newobj);
 }
+
+{
+  //手写浅拷贝
+  let result = {};
+  function merge(target, ...objs) {
+    for (const obj of objs) {
+      for (const prop in obj) {
+        target[prop] = obj[prop];
+      }
+    }
+  }
+  merge(result, obj, obj2, obj3);
+  console.log(result);
+}
