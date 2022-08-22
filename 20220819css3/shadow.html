@@ -37,11 +37,12 @@
     <button class="btn">打开</button>
     <button class="btn1">关闭</button>
     <script>
-      const box1 = document.querySelector(".box");
-      const box2 = document.querySelector(".box2");
-      const shadowOpen = document.querySelector(".btn");
-      const shadowClose = document.querySelector(".btn1");
-
+      const box1 = document.querySelector('.box');
+      const box2 = document.querySelector('.box2');
+      const shadowOpen = document.querySelector('.btn');
+      const shadowClose = document.querySelector('.btn1');
+      const body = document.querySelector('body');
+      body.style.cursor = 'url("./favicon.ico") 24 24,auto';
       const shadowFn = (e) => {
         let centerX = 150;
         let centerY = 150;
@@ -49,18 +50,18 @@
         let offsetX = centerX - e.x;
         let offsetY = centerY - e.y;
         let blur = Math.sqrt(offsetX ** 2 + offsetY ** 2) / 20;
-        console.log("x:", e.x);
-        console.log("y:", e.y);
+        console.log('x:', e.x);
+        console.log('y:', e.y);
 
         box1.style.textShadow = `${offsetX}px ${offsetY}px ${blur}px`;
 
         if (e.x > 300 || e.y > 300) box1.style.textShadow = `${0}px ${0}px`;
       };
-      shadowOpen.addEventListener("click", () => {
-        box2.addEventListener("mousemove", shadowFn);
+      shadowOpen.addEventListener('click', () => {
+        box2.addEventListener('mousemove', shadowFn);
       });
-      shadowClose.addEventListener("click", () => {
-        box2.removeEventListener("mousemove", shadowFn);
+      shadowClose.addEventListener('click', () => {
+        box2.removeEventListener('mousemove', shadowFn);
       });
     </script>
   </body>

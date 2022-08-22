@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+      }
+      .dot {
+        width: 20px;
+        height: 20px;
+        border: 1px solid red;
+        border-radius: 20px;
+        background-color: red;
+      }
+      .one {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .two {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+      .three {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .four {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .five {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .four .fir-col {
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+      }
+      .four .sec-col {
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+      }
+      .five .fir-col {
+        display: flex;
+        flex-direction: column;
+
+        gap: 40px;
+      }
+      .five .sec-col {
+        display: flex;
+        flex-direction: column;
+
+        gap: 40px;
+      }
+      .six {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .six .sec-col {
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+      }
+      .six .fir-col {
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="one box">
+        <div class="dot"></div>
+      </div>
+      <div class="two box">
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="three box">
+        <div class="dot" style="align-self: flex-start"></div>
+        <div class="dot"></div>
+        <div class="dot" style="align-self: flex-end"></div>
+      </div>
+      <div class="four box">
+        <div class="fir-col">
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="sec-col">
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+      <div class="five box">
+        <div class="fir-col">
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="dot"></div>
+        <div class="sec-col">
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+      <div class="six box">
+        <div class="fir-col">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="sec-col">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
